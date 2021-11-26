@@ -1,0 +1,11 @@
+<ul>
+    <input placeholder="Add to list" #mname>
+    <button (click)="addANewElementOnList(mname.value)">Add on list</button>
+    <li *ngFor="let task of tasks">
+        <input type="button" value="Delete" (click)="deleteElement(task.id)">
+        <input type="checkbox" [checked]="task.done" (click)="toggleTaskStatus(task.id)">
+        <del *ngIf="task.done">{{ task.name }}</del>
+        <span *ngIf="!task.done">{{ task.name }}</span>
+    </li>
+
+</ul>
